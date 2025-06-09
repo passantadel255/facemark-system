@@ -9,7 +9,7 @@ Built with **Flutter Web** and **Firebase**, the FaceMark System is designed to 
 - 📅 **Timetable & Extra Class Management**
 - 🧠 **AI-Based Facial Recognition for Attendance**
 - 🔔 **Email Notifications via SendGrid or Mailgun**
-- 📊 **Quiz and Attendance Records per Student**
+- 📊 **Attendance Records per Student**
 - ☁️ **Real-Time Firebase Integration**
 
 ---
