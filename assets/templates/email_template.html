@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FaceMark Notification</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+        }
+        .container {
+          background-color: #ffffff;
+          margin: 40px auto;
+          padding: 20px;
+          border-radius: 8px;
+          width: 100%;
+          max-width: 600px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+          text-align: center;
+          padding-bottom: 20px;
+        }
+        .content {
+          line-height: 1.6;
+        }
+        .lecture-details {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        .lecture-details th, .lecture-details td {
+          text-align: left;
+          padding: 8px;
+          border: 1px solid #ddd;
+        }
+        .lecture-details th {
+          background-color: #f2f2f2;
+        }
+        .footer {
+          margin-top: 24px;
+          font-size: 12px;
+          text-align: center;
+          color: #888;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="{{appLogo}}" width="100" height="100" alt="FaceMark Logo"/>
+        <h2>{{title}}</h2>
+    </div>
+    <div class="content">
+        <p>Dear Students,</p>
+        <p>Here are the details for your upcoming class:</p>
+        <table class="lecture-details">
+            <tr><th>Instructor:</th><td>{{drName}}</td></tr>
+            <tr><th>Course Name:</th><td>{{crsNm}}</td></tr>
+            <tr><th>Course Code:</th><td>{{crsCd}}</td></tr>
+            <tr><th>Day:</th><td>{{day}}</td></tr>
+            <tr><th>Start Time:</th><td>{{start}}</td></tr>
+            <tr><th>End Time:</th><td>{{end}}</td></tr>
+            <tr><th>Room:</th><td>{{room}}</td></tr>
+            <tr><th>Notes:</th><td>{{notes}}</td></tr>
+        </table>
+        <p>Best regards,<br>FaceMark App Team</p>
+    </div>
+    <div class="footer">
+        &copy; 2025 FaceMark App. All rights reserved.
+    </div>
+</div>
+</body>
+</html>

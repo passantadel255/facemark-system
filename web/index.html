@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <base href="$FLUTTER_BASE_HREF">
+
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="FaceMark Web Application is an AI-powered attendance and academic management system. It enables tech assistants to manage class schedules, take attendance using facial recognition, while students can access their timetables, attendance records. Designed for scalability, it ensures seamless academic management for institutions.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="FaceMark">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+
+  <meta property="og:image" content="https://facemark-307a2.web.app/favicon.png" />
+  <meta property="og:title" content="FaceMark" />
+  <meta property="og:description" content="FaceMark Web Application is an AI-powered attendance and academic management system. It enables tech assistants to Manage class schedules and take attendance with FaceMark Web App." />
+
+
+
+  <title>FaceMark</title>
+
+  <!-- Flutter Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- TensorFlow.js & Teachable Machine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  <script src="tm_model.js"></script>
+
+  <!-- Canvas and Layout Styles -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    #flutter_view {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/app_components/splash-page-background.png') no-repeat center center / cover;
+      z-index: 9999;
+    }
+
+    #splash-screen-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    #splash-screen-inner img {
+      max-width: 25%;
+      min-width: 250px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Flutter Canvas -->
+<div id="flutter_view"></div>
+
+<!-- Splash Screen -->
+<div id="splash-screen">
+  <div id="splash-screen-inner">
+    <img src="assets/images/app_logo/facemark-squre-logo-animated.gif" alt="Splash Logo">
+  </div>
+</div>
+
+<!-- Flutter App Loader -->
+<script src="flutter_bootstrap.js" async></script>
+
+<!-- Optional: Block microphone request for privacy -->
+<script>
+  const originalGetUserMedia = navigator.mediaDevices?.getUserMedia?.bind(navigator.mediaDevices);
+  if (originalGetUserMedia) {
+    navigator.mediaDevices.getUserMedia = function (constraints) {
+      if (constraints && typeof constraints === 'object') {
+        if ('audio' in constraints) {
+          constraints.audio = false;
+        } else {
+          constraints = { ...constraints, audio: false };
+        }
+      }
+      return originalGetUserMedia(constraints);
+    };
+  }
+</script>
+
+<!-- Splash Fade Out -->
+<script>
+  window.addEventListener('flutter-first-frame', () => {
+    setTimeout(() => {
+      const splashScreen = document.getElementById('splash-screen');
+      if (splashScreen) {
+        splashScreen.style.transition = 'opacity 0.5s ease-out';
+        splashScreen.style.opacity = '0';
+        setTimeout(() => splashScreen.remove(), 500);
+      }
+    }, 300);
+  });
+</script>
+
+</body>
+</html>

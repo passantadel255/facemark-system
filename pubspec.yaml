@@ -1,0 +1,77 @@
+name: facemark
+description: "FaceMark Web Application is an AI-powered attendance and academic management system built using Flutter Web and Firebase. It enables tech assistants to manage class schedules, take attendance using facial recognition, and record quiz scores, while students can access their timetables, attendance records, and quiz results. The system integrates Firebase for authentication, database management, cloud functions, and hosting, with TensorFlow-based facial recognition for automated attendance tracking. Email notifications are sent for scheduled classes using SendGrid or Mailgun. Designed for scalability, it ensures seamless academic management for institutions."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  firebase_core: ^3.10.1
+  firebase_auth: ^5.4.1
+  cloud_firestore: ^5.6.2
+  cloud_functions: ^5.4.0
+  firebase_storage: ^12.4.5
+
+
+  go_router: ^14.7.2
+  url_strategy: ^0.3.0
+  intl: ^0.20.2
+  percent_indicator: ^4.2.4
+
+
+  image_picker: ^1.1.2
+  camera: ^0.11.1
+  camera_web: ^0.3.5
+  js: ^0.6.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/templates/
+    - assets/images/app_logo/
+    - assets/images/app_components/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
+          weight: 300 # Light
+        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+          weight: 400 # Regular
+        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+          weight: 500 # Medium
+        - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+          weight: 700 # Bold
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraBold.ttf
+          weight: 800 # Extra Bold
+
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto/Roboto-Regular.ttf
+          weight: 400 # Regular
+        - asset: assets/fonts/Roboto/Roboto-Bold.ttf
+          weight: 700 # Bold
+        - asset: assets/fonts/Roboto/Roboto-Light.ttf
+          weight: 300 # Light
